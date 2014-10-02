@@ -30,6 +30,15 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.6)
     arel (3.0.3)
+    backbone-on-rails (1.1.1.0)
+      actionmailer
+      actionpack
+      activemodel
+      activeresource
+      eco
+      ejs
+      jquery-rails
+      railties
     buftok (0.2.0)
     builder (3.0.4)
     coderay (1.1.0)
@@ -42,6 +51,12 @@ GEM
     coffee-script-source (1.8.0)
     cookiejar (0.3.2)
     daemons (1.1.9)
+    eco (1.0.0)
+      coffee-script
+      eco-source
+      execjs
+    eco-source (1.1.0.rc.1)
+    ejs (1.1.1)
     em-http-request (1.1.2)
       addressable (>= 2.3.4)
       cookiejar
@@ -189,6 +204,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  backbone-on-rails
   coffee-rails (~> 3.2.1)
   haml
   haml-rails (>= 0.3.4)

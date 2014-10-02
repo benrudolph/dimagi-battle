@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1>
+      <%= @user1.get('name') %>
+    </h1>
+  </div>
+  <div class="col-md-6">
+    <h1>
+      <%= @user2.get('name') %>
+    </h1>
+  </div>
+</div>
+<% for metric in @metrics: %>
+  <div class="row">
+
+    <div class="graph-container col-md-12">
+      <h3><%= metric.human %></h3>
+      <% v1 = @user1[metric.name]() %>
+      <% v2 = @user2[metric.name]() %>
+      <div class="graph">
+        <div class="bar bar1" style="width: <%= 100 * (v1 / (v1 + v2)) %>%"></div>
+        <div class="value value1"><%= v1 %></div>
+
+        <div class="bar bar2" style="width: <%= 100 * (v2 / (v1 + v2)) %>%"></div>
+        <div class="value value2"><%= v2 %></div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1 class="winner">
+      <%= @winner.get 'name' %>!
+    </h1>
+  </div>
+</div>

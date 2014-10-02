@@ -36,6 +36,7 @@ namespace :stream do
           :max_rows => 10
         }
         results = JSON.parse(response)
+        require 'pry'; binding.pry
 
         if results['totalResultsCount'] > 0 and results['geonames'][0].present?
           result = results['geonames'][0]

@@ -1,0 +1,27 @@
+#fight
+:javascript
+  $(document).ready(function() {
+
+    DimagiBattle.manager = new DimagiBattle.Models.Manager()
+
+    $.when(
+      $.get('/locations', { where: { username: '#{@username1}' } }),
+      $.get('/locations', { where: { username: '#{@username2}' } })).done(function(resp1, resp2) {
+
+        DimagiBattle.manager.set('user1', new DimagiBattle.Models.User({
+          name: '#{@username1}',
+          locations: new DimagiBattle.Collections.Locations(resp1[0])
+        }))
+
+        DimagiBattle.manager.set('user2', new DimagiBattle.Models.User({
+          name: '#{@username2}' ,
+          locations: new DimagiBattle.Collections.Locations(resp2[0])
+        }))
+
+        DimagiBattle.router = new DimagiBattle.Routers.FightRouter();
+        Backbone.history.start();
+      })
+
+
+  })
+

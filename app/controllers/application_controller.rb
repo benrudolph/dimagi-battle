@@ -3,10 +3,13 @@ class ApplicationController < ActionController::Base
 
   def index
 
+
     render :index
   end
 
   def fight
+    @username1 = params[:user1]
+    @username2 = params[:user2]
 
     render :fight
   end
